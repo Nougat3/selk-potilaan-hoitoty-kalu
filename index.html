@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selkäpotilaan hoitotyökalu</title>
     <style>
         body {
@@ -9,10 +10,14 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         .container {
+            width: 90%;
             max-width: 600px;
-            margin: 50px auto;
             padding: 20px;
             background: #fff;
             border-radius: 8px;
@@ -42,6 +47,18 @@
         }
         .result {
             margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 80%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                width: 60%;
+            }
         }
     </style>
 </head>
@@ -78,3 +95,4 @@
 </script>
 </body>
 </html>
+
