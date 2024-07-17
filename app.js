@@ -44,20 +44,20 @@ function evaluate() {
             <h3>MRI virka-aikana ja konsultoi selkäortopedia: Voimakas kipu ja alaraajaan etenevä heikkous.</h3>
             <h3>Hoito-ohjeet:</h3>
             <p>Usein lyhyt sairauspoissaolo, päiviä–viikko, oireen vaikeudesta ja työtehtävistä riippuen.</p>
-            <p>Vuodelevon välttäminen ja tavallisten toimien jatkaminen.</p>
+            <p>Vuodelevon välttäminen ja tavallisten toimien jatkaminen. Ohjeistetaan suullisesti selkäkivun hälyyttävät oireet: Cauda equina -oireet:Virtsaamisvaikeudet, kuten virtsaumpi tai inkontinenssi, ulosteen pidätyskyvyn menetys, tunnoton alue peräaukon ympärillä (ratsupaikka-anestesia), molemminpuoliset alaraajaoireet</p>
             <p>Kipulääkkeet ensisijaisuusjärjestyksessä: parasetamoli, tulehduskipulääkkeet, näiden ja miedon opioidin (kodeiini) yhdistelmät.</p>
             <p>Lihasrelaksantit vain, jos kipulääkitys ei sovi tai auta riittävästi.</p>
-            <p>Manipulaatiohoito mahdollinen, kun ei ole aihetta epäillä vakavaa kivun syytä.</p>
+            <p>Lisäksi voidaan aloittaa neuropaattisen kivun lääkkeitä: esim. gabrion/lyrica lääkeohjeiden mukaan.</p>
         `;
     } else if (pain >= 7) {
         treatment = `
-            <h3>Kivunhoito ja kliininen kontrolli tarvittaessa.</h3>
+            <h3>Kivunhoito ja kliininen kontrolli tarvittaessa, suositellaan säännöllistä fysioterapiaa.</h3>
             <h3>Hoito-ohjeet:</h3>
             <p>Usein lyhyt sairauspoissaolo, päiviä–viikko, oireen vaikeudesta ja työtehtävistä riippuen.</p>
             <p>Vuodelevon välttäminen ja tavallisten toimien jatkaminen.</p>
             <p>Kipulääkkeet ensisijaisuusjärjestyksessä: parasetamoli, tulehduskipulääkkeet, näiden ja miedon opioidin (kodeiini) yhdistelmät.</p>
             <p>Lihasrelaksantit vain, jos kipulääkitys ei sovi tai auta riittävästi.</p>
-            <p>Manipulaatiohoito mahdollinen, kun ei ole aihetta epäillä vakavaa kivun syytä.</p>
+            <p>Tarvittaessa neuropaattisten kipulääkkeiden aloitus: gabrion/lyrica</p>
         `;
     } else if (fever === 'yes' || abdominalPain === 'yes' || cancerHistory === 'yes') {
         treatment = `
@@ -65,10 +65,12 @@ function evaluate() {
         `;
     } else {
         treatment = `
-            <h3>Seuranta perusterveydenhuollossa:</h3>
-            <p>Ei hälyttäviä oireita, joten konservatiivinen hoitolinja. Lähete tehty fysioterapiaan.</p>
-            <p>Gabapentin lääkityksen aloitus (300mg 1+1+1 (nosto + 300mg/vrk) tarvittavat lisäannosnosto 300mg kerrallaan viikon välein, Panadol jatkuu rinnalla.</p>
-            <p>Mikäli hälyttäviä oireita (cauda-oireet) hakeutuu ESH-tasoiseen päivystykseen ambulanssilla, jossa mahdollista kuvata selkä.</p>
+            <h3>Seurantalinja tilanteen suhteen, tarv. on uudelleen yhteydessä</h3>
+            <h3>Hoito-ohjeet:</h3>
+            <p>Konservatiivinen hoito: fysioterapia ja kipulääkitys. Usein lyhyt sairauspoissaolo, päiviä–viikko, oireen vaikeudesta ja työtehtävistä riippuen.</p>
+            <p>Vuodelevon välttäminen ja tavallisten toimien jatkaminen. Ohjeistetaan suullisesti selkäkivun hälyyttävät oireet: Cauda equina -oireet:Virtsaamisvaikeudet, kuten virtsaumpi tai inkontinenssi, ulosteen pidätyskyvyn menetys, tunnoton alue peräaukon ympärillä (ratsupaikka-anestesia), molemminpuoliset alaraajaoireet</p>
+            <p>Kipulääkkeet ensisijaisuusjärjestyksessä: parasetamoli, tulehduskipulääkkeet.</p>
+            <p>Lihasrelaksantit vain, jos kipulääkitys ei sovi tai auta riittävästi.</p>
         `;
     }
 
