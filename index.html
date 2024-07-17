@@ -17,7 +17,7 @@
         }
         .container {
             width: 90%;
-            max-width: 600px;
+            max-width: 800px;
             padding: 20px;
             background: #fff;
             border-radius: 8px;
@@ -30,10 +30,11 @@
             display: block;
             margin-bottom: 5px;
         }
-        input, select, button {
+        input, select, textarea, button {
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
+            margin-bottom: 10px;
         }
         button {
             background: #007bff;
@@ -48,13 +49,11 @@
         .result {
             margin-top: 20px;
         }
-
         @media (min-width: 768px) {
             .container {
                 width: 80%;
             }
         }
-
         @media (min-width: 1024px) {
             .container {
                 width: 60%;
@@ -66,9 +65,50 @@
 
 <div class="container">
     <h2>Selkäpotilaan hoitotyökalu</h2>
+    <h3>Anamneesi</h3>
     <div class="form-group">
-        <label for="pain">Kivun voimakkuus (VAS 0-10):</label>
-        <input type="number" id="pain" min="0" max="10">
+        <label for="painDescription">Kivun luonne ja sijainti:</label>
+        <textarea id="painDescription"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="painStart">Kivun alkamisajankohta ja mahdollinen vamma:</label>
+        <textarea id="painStart"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="painRadiation">Kivun säteily ja pahentavat/lievittävät tekijät:</label>
+        <textarea id="painRadiation"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="previousBackIssues">Aiemmat selkävaivat ja hoidot:</label>
+        <textarea id="previousBackIssues"></textarea>
+    </div>
+    
+    <h3>Fyysinen tarkastus</h3>
+    <div class="form-group">
+        <label for="inspection">Inspektio:</label>
+        <textarea id="inspection" placeholder="Ryhti ja kävely, Selän asento ja symmetria"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="palpation">Palpaatio:</label>
+        <textarea id="palpation" placeholder="Kivun paikallistaminen, Lihasjännitykset ja -kivut"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="movementTests">Liikelaajuustestit:</label>
+        <textarea id="movementTests" placeholder="Eteen-, taakse- ja sivutaivutukset, Kiertoliikkeet"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="neurologicalTests">Neurologiset testit:</label>
+        <textarea id="neurologicalTests" placeholder="Refleksit (patella, akilles), Lihasvoimat (varpaillenousu, kantakävely), Sensibiliteetti (ihotunto), Lasègue-testi (suoran jalan nosto)"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="specialTests">Erikoistestit:</label>
+        <textarea id="specialTests" placeholder="Patrick's test (FABER-testi), Slump-testi"></textarea>
+    </div>
+    
+    <h3>Kivun voimakkuus (VAS 0-10)</h3>
+    <div class="form-group">
+        <label for="pain">Kivun voimakkuus (VAS 0-10): <span id="painValue">5</span></label>
+        <input type="range" id="pain" min="0" max="10" value="5" oninput="document.getElementById('painValue').innerText = this.value">
     </div>
     <div class="form-group">
         <label for="weakness">Onko alaraajassa heikkoutta?</label>
@@ -84,7 +124,30 @@
             <option value="yes">Kyllä</option>
         </select>
     </div>
+    <div class="form-group">
+        <label for="fever">Onko kuumetta?</label>
+        <select id="fever">
+            <option value="no">Ei</option>
+            <option value="yes">Kyllä</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="abdominalPain">Onko kovaa vatsakipua?</label>
+        <select id="abdominalPain">
+            <option value="no">Ei</option>
+            <option value="yes">Kyllä</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="cancerHistory">Onko aikaisemmin ollut pahanlaatuinen kasvain?</label>
+        <select id="cancerHistory">
+            <option value="no">Ei</option>
+            <option value="yes">Kyllä</option>
+        </select>
+    </div>
+
     <button id="evaluateButton">Arvioi</button>
+    <button id="copyButton" style="display: none;">Kopioi hoitosuunnitelma</button>
 
     <div class="result" id="result"></div>
 </div>
@@ -92,6 +155,7 @@
 <script src="app.js"></script>
 <script>
     document.getElementById('evaluateButton').addEventListener('click', evaluate);
+    document.getElementById('copyButton').addEventListener('click', copyToClipboard);
 </script>
 </body>
 </html>
